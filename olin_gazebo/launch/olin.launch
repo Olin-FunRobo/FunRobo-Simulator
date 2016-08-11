@@ -1,0 +1,27 @@
+<launch>
+	<env name="GAZEBO_RESOURCE_PATH" value="/home/jamiecho/catkin_ws/src/olin_funrobo/olin_gazebo/models" />
+	<env name="GAZEBO_MODEL_PATH" value="/home/jamiecho/catkin_ws/src/olin_funrobo/olin_gazebo/models" />
+
+	<arg name="paused" default="false"/>
+	<arg name="use_sim_time" default="true"/>
+	<arg name="gui" default="true"/>
+	<arg name="headless" default="false"/>
+	<arg name="debug" default="false"/>
+
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="$(find olin_gazebo)/worlds/olin.world"/>
+		<arg name="debug" value="$(arg debug)" />
+		<arg name="gui" value="$(arg gui)" />
+		<arg name="paused" value="$(arg paused)"/>
+		<arg name="use_sim_time" value="$(arg use_sim_time)"/>
+		<arg name="headless" value="$(arg headless)"/>
+	</include>
+
+	<!--<param name="robot_description" textfile="$(find olin_description)/urdf/robot.urdf" />-->
+	<param name="robot_description"
+		command="$(find xacro)/xacro.py '$(find olin_description)/urdf/robot.urdf.xacro'" />
+
+	<!-- Spawn a robot into Gazebo -->
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model olin -param robot_description" />
+
+</launch>

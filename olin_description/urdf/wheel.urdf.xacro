@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wifi/xacro" name="wheel">
+	<xacro:macro name="wheel" params="wheel_prefix *joint_pose">
+		<link name="${wheel_prefix}_wheel_link">
+			<inertial>
+				<mass value="0.0015"/>
+				<inertia ixx="3.64e-06" ixy="0" ixz="0" iyy="3.64e-06" iyz="0" izz="6.91e-06"/>
+			</inertial>
+			<visual>
+				<origin xyz="0 0 0" rpy="0 ${M_PI/2} 0"/>
+				<geometry>
+					<cylinder length="0.04" radius="0.1"/>
+				</geometry>
+				<material name="black">
+					<color rgba="0 0 0 0.5"/>
+				</material>
+			</visual>
+			<collision>
+				<origin xyz="0.0 0.0 0" rpy="0 ${M_PI/2} 0"/>
+				<geometry>
+					<cylinder length="0.04" radius="0.1"/>
+				</geometry>
+			</collision>
+		</link>
+
+		<gazebo reference="${wheel_prefix}_wheel_link">
+			<mu1 value="1.0"/>
+			<mu2 value="1.0"/>
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<!--<fdir1 value="1 0 0"/>-->
+		</gazebo>
+
+		<joint name="${wheel_prefix}_wheel" type="continuous">
+			<parent link="base_link"/>
+			<child link="${wheel_prefix}_wheel_link"/>
+			<xacro:insert_block name="joint_pose"/>
+			<!--<origin xyz="0 0 0" rpy="0 0 0"/>-->
+			<!---<joint_properties damping="0.0" friction="0.5"/>-->
+			<axis xyz="1 0 0" rpy="0 0 0"/>
+		</joint>
+
+		<transmission name="${wheel_prefix}_wheel_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<!--<type>hardware_interface</type>-->
+			<actuator name="${wheel_prefix}_wheel_motor">
+				<hardwareInterface>VelocityJointInterface</hardwareInterface>
+				<mechanicalReduction>1</mechanicalReduction>
+			</actuator>
+			<joint name="${wheel_prefix}_wheel">
+				<hardwareInterface>VelocityJointInterface</hardwareInterface>
+			</joint>
+		</transmission>
+
+	</xacro:macro>
+</robot>
