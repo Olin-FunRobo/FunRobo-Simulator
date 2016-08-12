@@ -3,8 +3,8 @@
 	<xacro:macro name="lidar" params="lidar_id">
 
 		<joint name="hokuyo_joint" type="fixed">
-			<axis xyz="0 1 0" />
-			<origin xyz="0 -0.3 0.2" rpy="0 0 -1.57"/>
+			<axis xyz="0 1 0" /> <!-- NOT SO SURE -->
+			<origin xyz="${base_xdim} 0 0.2" rpy="0 0 0"/>
 			<parent link="base_link"/>
 			<child link="hokuyo_link"/>
 		</joint>

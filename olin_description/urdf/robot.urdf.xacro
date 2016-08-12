@@ -7,6 +7,24 @@
 
 	<property name="M_PI" value="3.14159"/>
 
+	<property name="wheel_radius" value="0.1"/>
+	<property name="wheel_thickness" value="0.04"/>
+	<property name="wheel_x_offset" value="0.11"/>
+	<property name="wheel_y_offset" value="0.19"/>
+	<property name="wheel_mass" value="0.1"/>
+
+	<property name="base_xdim" value="0.4"/>
+	<property name="base_ydim" value="0.3"/>
+	<property name="base_zdim" value="0.1"/>
+	<property name="base_mass" value="2"/>
+
+	<xacro:macro name="box_inertia" params="m x y z">
+		<inertia  ixx="${m*(y*y+z*z)/12}" ixy = "0" ixz = "0"
+			iyy="${m*(x*x+z*z)/12}" iyz = "0"
+			izz="${m*(x*x+z*z)/12}"
+			/>
+	</xacro:macro>
+
 	<gazebo>
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 			<robotNamespace>/</robotNamespace>
@@ -18,7 +36,7 @@
 	<link name="base_link">
 		<visual>
 			<geometry>
-				<box size="0.3 0.6 0.1"/>
+				<box size="${base_xdim} ${base_ydim} ${base_zdim}"/>
 			</geometry>
 			<material name="white">
 				<color rgba="1 1 1 0.5"/>
@@ -26,31 +44,31 @@
 		</visual>
 		<collision>
 			<geometry>
-				<box size="0.3 0.6 0.1"/>
+				<box size="${base_xdim} ${base_ydim} ${base_zdim}"/>
 			</geometry>
 		</collision>
 		<inertial>
-			<mass value="1.8"/>
-			<inertia ixx="0.015" ixy="0" ixz="0" iyy="0.015" iyz="0" izz="0.0675"/>
+			<mass value="${base_mass}"/>
+			<box_inertia m="${base_mass}" x="${base_xdim}" y="${base_ydim}" z="${base_zdim}"/>
 		</inertial>
 	</link>
 
 
 	<!-- Four Wheels -->
 	<xacro:wheel wheel_prefix="front_left">
-		<origin xyz="0.19 0.3 0" rpy="0 0 0"/>
+		<origin xyz="${wheel_x_offset} ${wheel_y_offset} 0" rpy="0 0 0"/>
 	</xacro:wheel>
 
 	<xacro:wheel wheel_prefix="front_right">
-		<origin xyz="-0.19 0.3 0" rpy="0 0 0"/>
+		<origin xyz="${wheel_x_offset} -${wheel_y_offset} 0" rpy="0 0 0"/>
 	</xacro:wheel>
 
 	<xacro:wheel wheel_prefix="back_left">
-		<origin xyz="0.19 -0.3 0" rpy="0 0 0"/>
+		<origin xyz="-${wheel_x_offset} ${wheel_y_offset} 0" rpy="0 0 0"/>
 	</xacro:wheel>
 
 	<xacro:wheel wheel_prefix="back_right">
-		<origin xyz="-0.19 -0.3 0" rpy="0 0 0"/>
+		<origin xyz="-${wheel_x_offset} -${wheel_y_offset} 0" rpy="0 0 0"/>
 	</xacro:wheel>
 
 	<!-- Camera -->
