@@ -2,6 +2,8 @@
 <robot name="olin" xmlns:xacro="http://ros.org/wiki/xacro">
 
 	<xacro:include filename="$(find olin_description)/urdf/wheel.urdf.xacro" />
+	<xacro:include filename="$(find olin_description)/urdf/camera.urdf.xacro" />
+
 	<property name="M_PI" value="3.14159"/>
 
 	<gazebo>
@@ -11,6 +13,7 @@
 		</plugin>
 	</gazebo>
 
+	<!-- Root Element -->
 	<link name="base_link">
 		<visual>
 			<geometry>
@@ -31,19 +34,25 @@
 		</inertial>
 	</link>
 
-	<xacro:wheel wheel_prefix="front_left">
-		<origin xyz="-0.19 0.3 0" rpy="0 0 0"/>
-	</xacro:wheel>
 
-	<xacro:wheel wheel_prefix="front_right">
+	<!-- Four Wheels -->
+	<xacro:wheel wheel_prefix="front_left">
 		<origin xyz="0.19 0.3 0" rpy="0 0 0"/>
 	</xacro:wheel>
 
+	<xacro:wheel wheel_prefix="front_right">
+		<origin xyz="-0.19 0.3 0" rpy="0 0 0"/>
+	</xacro:wheel>
+
 	<xacro:wheel wheel_prefix="back_left">
-		<origin xyz="-0.19 -0.3 0" rpy="0 0 0"/>
+		<origin xyz="0.19 -0.3 0" rpy="0 0 0"/>
 	</xacro:wheel>
 
 	<xacro:wheel wheel_prefix="back_right">
-		<origin xyz="0.19 -0.3 0" rpy="0 0 0"/>
+		<origin xyz="-0.19 -0.3 0" rpy="0 0 0"/>
 	</xacro:wheel>
+
+	<!-- Camera -->
+	<xacro:simple_camera camera_id="1"/>
+
 </robot>
