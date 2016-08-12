@@ -10,6 +10,14 @@
 			<uri>model://olin</uri>
 		</include>
 
+		<scene>
+			<sky>
+				<clouds>
+					<speed>12</speed>
+				</clouds>
+			</sky>
+		</scene>
+
 		<model name="obstacles">
 			<pose>-45.72 30.48 0  1.57 0 0</pose>
 			<static>true</static>

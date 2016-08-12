@@ -1,0 +1,6 @@
+<!-- key_teleop -->
+<launch>
+	<node name="key_teleop" pkg="key_teleop" type="key_teleop.py" output="screen">
+		<remap from="/key_vel" to="/velocity_controller/cmd_vel"/>
+	</node>
+</launch>
