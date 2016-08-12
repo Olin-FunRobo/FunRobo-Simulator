@@ -3,6 +3,7 @@
 
 	<xacro:include filename="$(find olin_description)/urdf/wheel.urdf.xacro" />
 	<xacro:include filename="$(find olin_description)/urdf/camera.urdf.xacro" />
+	<xacro:include filename="$(find olin_description)/urdf/lidar.urdf.xacro" />
 
 	<property name="M_PI" value="3.14159"/>
 
@@ -54,5 +55,8 @@
 
 	<!-- Camera -->
 	<xacro:simple_camera camera_id="1"/>
+
+	<!-- LIDAR -->
+	<xacro:lidar lidar_id="1"/>
 
 </robot>
