@@ -1,9 +1,16 @@
 <launch>
+
+	<arg name="lidar_enabled" default="true"/>
+	<arg name="camera_enabled" default="true"/>
+
+	<arg name="build_map" default="false"/>
+
 	<!-- Load World -->
 	<include file="$(find olin_gazebo)/launch/world.launch"/>
 
 	<!-- Load Controller -->
 	<include file="$(find olin_control)/launch/olin_control_diff.launch"/>
+	<include file="$(find olin_control)/launch/olin_teleop_key.launch"/>
 
 	<!-- Load RQT interface to controller -->
 	<!--<include file="$(find olin_control)/launch/olin_rqt.launch"/>-->
@@ -15,8 +22,10 @@
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find olin_gazebo)/launch/lidar.rviz"/>
 
 	<!-- Build Map and show progress) -->
-	<!--<node name="mapper" pkg="gmapping" type="slam_gmapping" args="scan:=/olin/laser/scan _odom_frame:=/odom"/>
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find olin_gazebo)/launch/map.rviz"/>-->
+	<group if="$(arg build_map)">
+		<node name="mapper" pkg="gmapping" type="slam_gmapping" args="scan:=/olin/laser/scan _odom_frame:=/odom"/>
+		<node name="rviz" pkg="rviz" type="rviz" args="-d $(find olin_gazebo)/launch/map.rviz"/>
+	</group>
 
 	<!-- Record LIDAR / tf data -->
 	<!--<node name="recorder" pkg="rosbag" type="record" args="-o /tmp/lidar /olin/laser/scan /tf"/>-->
