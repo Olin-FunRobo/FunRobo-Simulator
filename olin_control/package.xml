@@ -51,6 +51,7 @@
   <run_depend>joint_trajectory_controller</run_depend>
   <run_depend>robot_state_publisher</run_depend>
   <run_depend>rqt_gui</run_depend>
+  <run_depend>image_view</run_depend>
 
 
 
