@@ -28,4 +28,6 @@
 
   <run_depend>key_teleop</run_depend>
 
+  <run_depend>robot_localization</run_depend>
+
 </package>
