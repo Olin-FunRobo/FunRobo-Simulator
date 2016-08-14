@@ -8,6 +8,10 @@
   <node name="controller_spawner" pkg="controller_manager" type="spawner"
 	  output="screen" ns="/" args="joint_state_controller velocity_controller"/>
 
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+    <rosparam command="load" file="$(find olin_control)/config/localization.yaml" />
+  </node>
+
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
     respawn="false" output="screen">
