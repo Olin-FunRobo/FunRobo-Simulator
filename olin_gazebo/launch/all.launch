@@ -11,6 +11,9 @@
 	<include file="$(find olin_control)/launch/olin_control_diff.launch"/>
 	<include file="$(find olin_control)/launch/olin_teleop_key.launch"/>
 
+	<!-- Fake GPS -->
+	<node name="gps" pkg="olin_gazebo" type="fake_gps"/>
+
 	<!-- Deprecated : Load RQT interface to controller -->
 	<!--<include file="$(find olin_control)/launch/olin_rqt.launch"/>-->
 

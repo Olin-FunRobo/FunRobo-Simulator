@@ -19,14 +19,14 @@
 		</scene>
 
 		<model name="obstacles">
-			<pose>-45.72 30.48 0  1.57 0 0</pose>
+			<pose>-42.13 41.39 0  1.57 0 0</pose>
 			<static>true</static>
 			<link name="rocks">
 				<visual name="rocks_visual">
 					<cast_shadows>true</cast_shadows>
 					<geometry>
 						<mesh>
-							<uri>file:///home/jamiecho/catkin_ws/src/olin_funrobo/olin_description/meshes/olino.STL</uri>
+							<uri>file:///home/jamiecho/catkin_ws/src/olin_funrobo/olin_description/meshes/olino_2.STL</uri>
 							<scale>0.001 0.001 0.001</scale>
 						</mesh>
 					</geometry>

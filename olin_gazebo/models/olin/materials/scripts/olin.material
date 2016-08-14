@@ -10,7 +10,7 @@ material Olin/Image
 
       texture_unit
       {
-        texture olin.png
+        texture olin_2.png
         filtering trilinear
       }
     }

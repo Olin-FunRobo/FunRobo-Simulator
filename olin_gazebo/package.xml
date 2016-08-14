@@ -12,6 +12,32 @@
   <!-- Build -->
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roslaunch</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>gazebo_msgs</build_depend>
+
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>gazebo_msgs</run_depend>
+
+  <!-- Gazebo -->
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>gazebo_plugins</run_depend>
+
+  <!-- Gazebo -->
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>gazebo_plugins</run_depend>
+
+  <!-- Gazebo -->
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>gazebo_plugins</run_depend>
 
   <!-- Gazebo -->
   <run_depend>gazebo_ros</run_depend>
