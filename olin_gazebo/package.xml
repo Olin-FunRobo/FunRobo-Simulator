@@ -53,6 +53,10 @@
   <run_depend>image_view</run_depend>
   <run_depend>rqt_gui</run_depend>
 
+  <!-- Mapping -->
+  <run_depend>gmapping</run_depend>
+  <run_depend>map_server</run_depend>
+
 
 
 
