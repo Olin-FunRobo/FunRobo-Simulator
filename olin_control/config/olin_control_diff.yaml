@@ -17,8 +17,8 @@
     estimate_velocity_from_position: true 
 
       # Wheel separation and radius multipliers
-    wheel_radius : 0.1
-    wheel_separation : 0.38
+    wheel_radius : 0.07
+    wheel_separation : 0.58
 
       # Velocity and acceleration limits
       # Whenever a min_* is unspecified, default to -max_*

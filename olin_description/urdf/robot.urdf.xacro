@@ -6,26 +6,41 @@
 	<xacro:include filename="$(find olin_description)/urdf/lidar.urdf.xacro" />
 	<xacro:include filename="$(find olin_description)/urdf/imu.urdf.xacro" />
 
-	<xacro:include filename="$(find olin_description)/urdf/sonar.urdf.xacro" />
+	<xacro:include filename="$(find olin_description)/urdf/range.urdf.xacro" />
 
 	<property name="M_PI" value="3.14159"/>
 
-	<property name="wheel_radius" value="0.1"/>
+	<property name="wheel_radius" value="0.07"/>
 	<property name="wheel_thickness" value="0.04"/>
-	<property name="wheel_x_offset" value="0.11"/>
-	<property name="wheel_y_offset" value="0.19"/>
+	<property name="wheel_x_offset" value="0.25"/>
+	<property name="wheel_y_offset" value="0.29"/>
 	<property name="wheel_mass" value="0.1"/>
 
-	<property name="base_xdim" value="0.4"/>
-	<property name="base_ydim" value="0.3"/>
+	<property name="base_xdim" value="0.5"/>
+	<property name="base_ydim" value="0.5"/>
 	<property name="base_zdim" value="0.1"/>
-	<property name="base_mass" value="2"/>
+	<property name="base_mass" value="3"/>
 
 	<xacro:macro name="box_inertia" params="m x y z">
 		<inertia  ixx="${m*(y*y+z*z)/12}" ixy = "0" ixz = "0"
 			iyy="${m*(x*x+z*z)/12}" iyz = "0"
 			izz="${m*(x*x+z*z)/12}"
 			/>
+	</xacro:macro>
+
+	<xacro:macro name="sonar_sensor" params="name parent ros_topic *origin *pose">
+		<xacro:range_sensor name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="1" min_range="1.0" max_range="5.0" field_of_view="${M_PI/4}" ray_count="5">
+			<xacro:insert_block name="origin"/>
+			<xacro:insert_block name="pose"/>
+			<mesh filename="package://hector_sensors_description/meshes/sonar_sensor/max_sonar_ez4.dae"/>
+		</xacro:range_sensor>
+	</xacro:macro>
+
+	<xacro:macro name="ir_sensor" params="name parent ros_topic *origin">
+		<xacro:range_sensor name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="1" min_range="0.01" max_range="5.0" field_of_view="${M_PI/8}" ray_count="10">
+			<xacro:insert_block name="origin"/>
+			<mesh filename="package://hector_sensors_description/meshes/sonar_sensor/max_sonar_ez4.dae"/>
+		</xacro:range_sensor>
 	</xacro:macro>
 
 	<gazebo>
@@ -84,14 +99,15 @@
 	<xacro:fake_imu />
 
 	<!-- Left Sonar -->
-	<xacro:sonar_sensor name="left_sonar" parent="base_link" ros_topic="left_sonar" update_rate="1" min_range="0.01" max_range="5.0" field_of_view="${M_PI/2}" ray_count="100" >
-		<origin xyz="0 ${base_ydim} 0" rpy="0 0 ${M_PI/2}" />
+	<xacro:sonar_sensor name="left_sonar" parent="base_link" ros_topic="left_sonar">
+		<origin xyz="0 ${base_ydim/2} 0" rpy="0 ${M_PI/2} 0" />
+		<pose xyz="0 ${base_ydim/2} 0" rpy="0 ${M_PI/2} 0" />
 	</xacro:sonar_sensor>
 
 	<!-- Right Sonar -->
-	<xacro:sonar_sensor name="right_sonar" parent="base_link" ros_topic="right_sonar" update_rate="1" min_range="0.01" max_range="5.0" field_of_view="${M_PI/2}" ray_count="100" >
-		<origin xyz="0 ${-base_ydim} 0" rpy="0 0 ${-M_PI/2}" />
-	</xacro:sonar_sensor>
+	<!--<xacro:sonar_sensor name="right_sonar" parent="base_link" ros_topic="right_sonar">
+		<origin xyz="0 ${-base_ydim/2 - 0.02} 0" rpy="0 0 ${-M_PI/2}" />
+	</xacro:sonar_sensor>-->
 
 </robot>
 

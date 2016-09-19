@@ -26,7 +26,7 @@
 					<cast_shadows>true</cast_shadows>
 					<geometry>
 						<mesh>
-							<uri>file:///home/jamiecho/catkin_ws/src/olin_funrobo/olin_description/meshes/olino_2.STL</uri>
+							<uri>file:///home/jamiecho/catkin_ws/src/FunRobo-Simulator/olin_description/meshes/olino_2.STL</uri>
 							<scale>0.001 0.001 0.001</scale>
 						</mesh>
 					</geometry>
@@ -41,7 +41,7 @@
 				<collision name="rocks_collision">
 					<geometry>
 						<mesh>
-							<uri>file:///home/jamiecho/catkin_ws/src/olin_funrobo/olin_description/meshes/olino_2.STL</uri>
+							<uri>file:///home/jamiecho/catkin_ws/src/FunRobo-Simulator/olin_description/meshes/olino_2.STL</uri>
 							<scale>0.001 0.001 0.001</scale>
 						</mesh>
 					</geometry>
