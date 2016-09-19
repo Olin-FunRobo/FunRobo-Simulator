@@ -34,6 +34,10 @@
   <run_depend>gazebo_ros_control</run_depend>
   <run_depend>gazebo_plugins</run_depend>
 
+  <!-- More Sensors -->
+  <run_depend>hector_gazebo_plugins</run_depend>
+  <run_depend>hector_sensors_description</run_depend>
+
   <!-- State Publishers -->
   <run_depend>joint_state_publisher</run_depend>
   <run_depend>robot_state_publisher</run_depend>

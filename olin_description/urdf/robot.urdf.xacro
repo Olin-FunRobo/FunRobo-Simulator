@@ -6,6 +6,8 @@
 	<xacro:include filename="$(find olin_description)/urdf/lidar.urdf.xacro" />
 	<xacro:include filename="$(find olin_description)/urdf/imu.urdf.xacro" />
 
+	<xacro:include filename="$(find olin_description)/urdf/sonar.urdf.xacro" />
+
 	<property name="M_PI" value="3.14159"/>
 
 	<property name="wheel_radius" value="0.1"/>
@@ -81,4 +83,15 @@
 	<!-- IMU -->
 	<xacro:fake_imu />
 
+	<!-- Left Sonar -->
+	<xacro:sonar_sensor name="left_sonar" parent="base_link" ros_topic="left_sonar" update_rate="1" min_range="0.01" max_range="5.0" field_of_view="${M_PI/2}" ray_count="100" >
+		<origin xyz="0 ${base_ydim} 0" rpy="0 0 ${M_PI/2}" />
+	</xacro:sonar_sensor>
+
+	<!-- Right Sonar -->
+	<xacro:sonar_sensor name="right_sonar" parent="base_link" ros_topic="right_sonar" update_rate="1" min_range="0.01" max_range="5.0" field_of_view="${M_PI/2}" ray_count="100" >
+		<origin xyz="0 ${-base_ydim} 0" rpy="0 0 ${-M_PI/2}" />
+	</xacro:sonar_sensor>
+
 </robot>
+
