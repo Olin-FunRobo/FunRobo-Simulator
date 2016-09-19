@@ -34,16 +34,6 @@
   <run_depend>gazebo_ros_control</run_depend>
   <run_depend>gazebo_plugins</run_depend>
 
-  <!-- Gazebo -->
-  <run_depend>gazebo_ros</run_depend>
-  <run_depend>gazebo_ros_control</run_depend>
-  <run_depend>gazebo_plugins</run_depend>
-
-  <!-- Gazebo -->
-  <run_depend>gazebo_ros</run_depend>
-  <run_depend>gazebo_ros_control</run_depend>
-  <run_depend>gazebo_plugins</run_depend>
-
   <!-- State Publishers -->
   <run_depend>joint_state_publisher</run_depend>
   <run_depend>robot_state_publisher</run_depend>

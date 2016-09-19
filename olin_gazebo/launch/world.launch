@@ -1,6 +1,6 @@
 <launch>
-	<env name="GAZEBO_RESOURCE_PATH" value="/home/jamiecho/catkin_ws/src/olin_funrobo/olin_gazebo/models" />
-	<env name="GAZEBO_MODEL_PATH" value="/home/jamiecho/catkin_ws/src/olin_funrobo/olin_gazebo/models" />
+	<env name="GAZEBO_RESOURCE_PATH" value="${HOME}/catkin_ws/src/olin_funrobo/olin_gazebo/models" />
+	<env name="GAZEBO_MODEL_PATH" value="${HOME}/catkin_ws/src/olin_funrobo/olin_gazebo/models" />
 
 	<arg name="paused" default="false"/>
 	<arg name="use_sim_time" default="true"/>
