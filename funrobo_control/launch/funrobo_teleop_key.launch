@@ -1,6 +1,12 @@
 <!-- key_teleop -->
 <launch>
 	<node name="key_teleop" pkg="key_teleop" type="key_teleop.py" output="screen">
-		<remap from="/key_vel" to="/velocity_controller/cmd_vel"/>
+		<param name="turbo/linear_forward_min" value="0.5"/>
+		<param name="turbo/linear_forward_max" value="5.0"/>
+
+		<param name="turbo/linear_backward_min" value="0.5"/>
+		<param name="turbo/linear_backward_max" value="5.0"/>
+
+		<remap from="/key_vel" to="/funrobo/velocity_controller/cmd_vel"/>
 	</node>
 </launch>

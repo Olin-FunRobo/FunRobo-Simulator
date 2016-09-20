@@ -6,7 +6,7 @@
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner"
-	  output="screen" ns="/" args="joint_state_controller velocity_controller"/>
+	  output="screen" ns="/funrobo" args="joint_state_controller velocity_controller"/>
 
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
     <rosparam command="load" file="$(find funrobo_control)/config/localization.yaml" />

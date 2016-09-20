@@ -9,10 +9,10 @@
 
 	<!-- Load Controller -->
 	<include file="$(find funrobo_control)/launch/funrobo_control.launch"/>
-	<include file="$(find funrobo_control)/launch/funrobo_teleop_key.launch"/>
+	<!--<include file="$(find funrobo_control)/launch/funrobo_teleop_key.launch"/>-->
 
 	<!-- Fake GPS -->
-	<node name="gps" pkg="funrobo_gazebo" type="fake_gps"/>
+	<node name="gps" pkg="funrobo_gazebo" type="fake_gps" ns="funrobo"/>
 
 	<!-- Deprecated : Load RQT interface to controller -->
 	<!--<include file="$(find funrobo_control)/launch/funrobo_rqt.launch"/>-->

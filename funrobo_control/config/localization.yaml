@@ -6,7 +6,7 @@ two_d_mode: true
 
 frequency: 50
 
-odom0: velocity_controller/odom
+odom0: /funrobo/velocity_controller/odom
 odom0_config: [false, false, false,
                false, false, false,
                true, true, true,
@@ -15,7 +15,7 @@ odom0_config: [false, false, false,
 odom0_differential: false
 odom0_queue_size: 10
 
-imu0: imu_data
+imu0: /funrobo/imu_data
 imu0_config: [false, false, false,
               true, true, true,
               false, false, false,

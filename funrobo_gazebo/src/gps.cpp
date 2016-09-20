@@ -54,12 +54,14 @@ void translate(const gazebo_msgs::ModelStates::ConstPtr& local_msg){
 }
 
 int main(int argc, char** argv){
+
 	ros::init(argc,argv,"gps");
+
 	ros::NodeHandle nh;
 
-	fix_pub = nh.advertise<sensor_msgs::NavSatFix>("/fix",1000);
-	vel_pub = nh.advertise<geometry_msgs::TwistStamped>("/vel",1000);
-	time_pub = nh.advertise<sensor_msgs::TimeReference>("/time",1000);
+	fix_pub = nh.advertise<sensor_msgs::NavSatFix>("fix",1000);
+	vel_pub = nh.advertise<geometry_msgs::TwistStamped>("vel",1000);
+	time_pub = nh.advertise<sensor_msgs::TimeReference>("time",1000);
 
 	sub = nh.subscribe("/gazebo/model_states", 100, translate);
 	ros::spin();

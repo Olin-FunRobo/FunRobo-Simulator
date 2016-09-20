@@ -44,7 +44,7 @@
 
 	<gazebo>
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-			<robotNamespace>/</robotNamespace>
+			<robotNamespace>funrobo</robotNamespace>
 			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
 		</plugin>
 	</gazebo>
@@ -98,12 +98,12 @@
 	<xacro:fake_imu />
 
 	<!-- Left Sonar -->
-	<xacro:sonar_sensor name="left_sonar" parent="base_link" ros_topic="left_sonar">
+	<xacro:sonar_sensor name="left_sonar" parent="base_link" ros_topic="funrobo/left_sonar">
 		<origin xyz="0 ${base_ydim/2 + 0.02} 0" rpy="0 0 ${M_PI/2}" />
 	</xacro:sonar_sensor>
 
 	<!-- Right Sonar -->
-	<xacro:sonar_sensor name="right_sonar" parent="base_link" ros_topic="right_sonar">
+	<xacro:sonar_sensor name="right_sonar" parent="base_link" ros_topic="funrobo/right_sonar">
 		<origin xyz="0 ${-base_ydim/2 - 0.02} 0" rpy="0 0 ${-M_PI/2}" />
 	</xacro:sonar_sensor>
 
