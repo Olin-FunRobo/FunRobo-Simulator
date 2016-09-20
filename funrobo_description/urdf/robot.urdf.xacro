@@ -13,11 +13,12 @@
 	<property name="wheel_thickness" value="0.04"/>
 	<property name="wheel_x_offset" value="0.25"/>
 	<property name="wheel_y_offset" value="0.29"/>
+	<property name="wheel_z_offset" value="-0.1"/>
 	<property name="wheel_mass" value="0.1"/>
 
 	<property name="base_xdim" value="0.5"/>
 	<property name="base_ydim" value="0.5"/>
-	<property name="base_zdim" value="0.1"/>
+	<property name="base_zdim" value="0.2"/>
 	<property name="base_mass" value="3"/>
 
 	<xacro:macro name="box_inertia" params="m x y z">
@@ -72,19 +73,19 @@
 
 	<!-- Four Wheels -->
 	<xacro:wheel wheel_prefix="front_left">
-		<origin xyz="${wheel_x_offset} ${wheel_y_offset} 0" rpy="0 0 0"/>
+		<origin xyz="${wheel_x_offset} ${wheel_y_offset} ${wheel_z_offset}" rpy="0 0 0"/>
 	</xacro:wheel>
 
 	<xacro:wheel wheel_prefix="front_right">
-		<origin xyz="${wheel_x_offset} -${wheel_y_offset} 0" rpy="0 0 0"/>
+		<origin xyz="${wheel_x_offset} -${wheel_y_offset} ${wheel_z_offset}" rpy="0 0 0"/>
 	</xacro:wheel>
 
 	<xacro:wheel wheel_prefix="back_left">
-		<origin xyz="-${wheel_x_offset} ${wheel_y_offset} 0" rpy="0 0 0"/>
+		<origin xyz="-${wheel_x_offset} ${wheel_y_offset} ${wheel_z_offset}" rpy="0 0 0"/>
 	</xacro:wheel>
 
 	<xacro:wheel wheel_prefix="back_right">
-		<origin xyz="-${wheel_x_offset} -${wheel_y_offset} 0" rpy="0 0 0"/>
+		<origin xyz="-${wheel_x_offset} -${wheel_y_offset} ${wheel_z_offset}" rpy="0 0 0"/>
 	</xacro:wheel>
 
 	<!-- Camera -->
