@@ -22,6 +22,6 @@
 		command="$(find xacro)/xacro.py '$(find funrobo_description)/urdf/robot.urdf.xacro'" />
 
 	<!-- Spawn a robot into Gazebo -->
-	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model olin -param robot_description" />
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model funrobo -param robot_description" />
 
 </launch>
