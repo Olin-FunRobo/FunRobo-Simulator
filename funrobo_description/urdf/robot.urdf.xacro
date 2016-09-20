@@ -36,7 +36,7 @@
 	</xacro:macro>
 
 	<xacro:macro name="ir_sensor" params="name parent ros_topic *origin">
-		<xacro:range_sensor name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="1" min_range="0.01" max_range="5.0" field_of_view="${M_PI/8}" ray_count="10">
+		<xacro:range_sensor name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="1" min_range="0.1" max_range="0.8" field_of_view="${8 * M_PI/180}" ray_count="10">
 			<xacro:insert_block name="origin"/>
 			<mesh filename="package://hector_sensors_description/meshes/sonar_sensor/max_sonar_ez4.dae"/>
 		</xacro:range_sensor>
@@ -89,10 +89,14 @@
 	</xacro:wheel>
 
 	<!-- Camera -->
-	<xacro:simple_camera camera_id="1"/>
+	<xacro:simple_camera camera_id="1">
+		<origin xyz="${base_xdim/2 - 0.1} 0 0.3" rpy="0 0 0"/>
+	</xacro:simple_camera>
 
 	<!-- LIDAR -->
-	<xacro:lidar lidar_id="1"/>
+	<xacro:lidar lidar_id="1">
+		<origin xyz="${base_xdim/2 - 0.02} 0 0.2" rpy="0 0 0"/>
+	</xacro:lidar>
 
 	<!-- IMU -->
 	<xacro:fake_imu />
@@ -106,6 +110,13 @@
 	<xacro:sonar_sensor name="right_sonar" parent="base_link" ros_topic="funrobo/right_sonar">
 		<origin xyz="0 ${-base_ydim/2 - 0.02} 0" rpy="0 0 ${-M_PI/2}" />
 	</xacro:sonar_sensor>
+
+	<!-- Front-Down IR -->
+	<xacro:ir_sensor name="front_ir" parent="base_link" ros_topic="funrobo/front_ir">
+		<origin xyz="${base_xdim/2 + 0.02} 0 0" rpy="0 0 0" />
+	</xacro:ir_sensor>
+
+
 
 </robot>
 

@@ -20,13 +20,13 @@
 
 			<visual>
 				<geometry>
-					<box size="0.1 0.1 0.1"/>
+					<box size="0.01 0.01 0.01"/>
 				</geometry>
 			</visual>
 
 			<collision>
 				<geometry>
-					<box size="0.1 0.1 0.1"/>
+					<box size="0.01 0.01 0.01"/>
 				</geometry>
 			</collision>
 

@@ -1,7 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="simple_camera">
 
-	<xacro:macro name="simple_camera" params="camera_id">
+	<xacro:macro name="simple_camera" params="camera_id *origin">
+
+		<joint name="$camera_${camera_id}_joint" type="fixed">
+			<axis xyz="0 1 0" />
+			<xacro:insert_block name="origin"/>
+			<parent link="base_link"/>
+			<child link="camera_${camera_id}_link"/>
+		</joint>
+
 		<link name="camera_${camera_id}_link">
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -27,12 +35,6 @@
 			</inertial>
 		</link>
 
-		<joint name="$camera_${camera_id}_joint" type="fixed">
-			<axis xyz="0 1 0" />
-			<origin xyz="${base_xdim} 0 0.2" rpy="0 0 0"/> <!-- NOT SO SURE -->
-			<parent link="base_link"/>
-			<child link="camera_${camera_id}_link"/>
-		</joint>
 
 		<gazebo reference="camera_${camera_id}_link">
 			<sensor type="camera" name="camera_${camera_id}">

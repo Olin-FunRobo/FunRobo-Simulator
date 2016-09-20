@@ -30,6 +30,12 @@ rosdep install -y funrobo_control funrobo_description funrobo_gazebo funrobo_aut
 roslaunch funrobo_gazebo all.launch
 ```
 
+## Driving The Robot
+
+```bash
+roslaunch funrobo_control funrobo_teleop_key.launch
+```
+
 # Generating a map
 
 ## Launching the simulation
