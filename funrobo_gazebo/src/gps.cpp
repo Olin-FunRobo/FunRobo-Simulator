@@ -29,7 +29,7 @@ void translate(const gazebo_msgs::ModelStates::ConstPtr& local_msg){
 
 	int n = local_msg->name.size();
 	for(int i=0; i<n; ++i){
-		if(local_msg->name[i] == "olin"){
+		if(local_msg->name[i] == "funrobo"){
 
 			fix_msg.header.stamp = ros::Time::now();
 			fix_msg.header.frame_id = ""; //global...?

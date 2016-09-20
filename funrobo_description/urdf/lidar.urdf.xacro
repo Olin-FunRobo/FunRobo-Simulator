@@ -21,7 +21,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
-					<mesh filename="package://olin_description/meshes/hokuyo.dae"/>
+					<mesh filename="package://funrobo_description/meshes/hokuyo.dae"/>
 				</geometry>
 			</visual>
 
@@ -58,7 +58,7 @@
 					</noise>
 				</ray>
 				<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-					<topicName>/olin/laser/scan</topicName>
+					<topicName>/funrobo/laser/scan</topicName>
 					<frameName>hokuyo_link</frameName>
 				</plugin>
 			</sensor>

@@ -18,16 +18,16 @@ Requires a maximum storage space of 680 MB available.
 
 ```bash
 cd ~/catkin_ws/src/
-git clone https://github.com/yycho0108/olin_funrobo.git
+git clone https://github.com/Olin-FunRobo/FunRobo-Simulator
 cd ~/catkin_ws
 catkin_make
-rosdep install -y olin_control olin_description olin_gazebo
+rosdep install -y funrobo_control funrobo_description funrobo_gazebo funrobo_autonomy
 ```
 
 # Launching
 
 ```bash
-roslaunch olin_gazebo all.launch
+roslaunch funrobo_gazebo all.launch
 ```
 
 # Generating a map
@@ -35,7 +35,7 @@ roslaunch olin_gazebo all.launch
 ## Launching the simulation
 
 ```bash
-roslaunch olin_gazebo all.launch build_map:=true
+roslaunch funrobo_gazebo all.launch build_map:=true
 ```
 
 ## Navigate around the world

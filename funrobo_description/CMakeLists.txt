@@ -1,28 +1,10 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(olin_gazebo)
-
-## ENABLE -std=c++11/c++0x
-include(CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
-CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
-if(COMPILER_SUPPORTS_CXX11)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-elseif(COMPILER_SUPPORTS_CXX0X)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-else()
-	message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
-endif()
-
+project(funrobo_description)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
-	roscpp
-	std_msgs
-	sensor_msgs
-	gazebo_msgs	
-	)
+find_package(catkin REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -114,10 +96,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS include
-  #LIBRARIES olin_gazebo
-  CATKIN_DEPENDS roscpp rospy gazebo_msgs sensor_msgs 
-  #DEPENDS system_lib
+#  INCLUDE_DIRS include
+#  LIBRARIES funrobo_description
+#  CATKIN_DEPENDS other_catkin_pkg
+#  DEPENDS system_lib
 )
 
 ###########
@@ -126,32 +108,29 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(
-	include
-	${catkin_INCLUDE_DIRS}
-	)
+# include_directories(include)
 
 ## Declare a C++ library
-# add_library(olin_gazebo
-#   src/${PROJECT_NAME}/olin_gazebo.cpp
+# add_library(funrobo_description
+#   src/${PROJECT_NAME}/funrobo_description.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(olin_gazebo ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(funrobo_description ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-add_executable(fake_gps src/gps.cpp)
+# add_executable(funrobo_description_node src/funrobo_description_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(olin_gazebo_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(funrobo_description_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(fake_gps
-   ${catkin_LIBRARIES}
- )
+# target_link_libraries(funrobo_description_node
+#   ${catkin_LIBRARIES}
+# )
 
 #############
 ## Install ##
@@ -168,7 +147,7 @@ add_executable(fake_gps src/gps.cpp)
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS olin_gazebo olin_gazebo_node
+# install(TARGETS funrobo_description funrobo_description_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -193,7 +172,7 @@ add_executable(fake_gps src/gps.cpp)
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_olin_gazebo.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_funrobo_description.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

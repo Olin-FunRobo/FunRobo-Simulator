@@ -1,0 +1,40 @@
+<launch>
+
+	<arg name="show_sensors" default="true"/>
+	<arg name="show_camera" default="true"/>
+	<arg name="build_map" default="false"/>
+
+	<!-- Load World -->
+	<include file="$(find funrobo_gazebo)/launch/world.launch"/>
+
+	<!-- Load Controller -->
+	<include file="$(find funrobo_control)/launch/funrobo_control.launch"/>
+	<include file="$(find funrobo_control)/launch/funrobo_teleop_key.launch"/>
+
+	<!-- Fake GPS -->
+	<node name="gps" pkg="funrobo_gazebo" type="fake_gps"/>
+
+	<!-- Deprecated : Load RQT interface to controller -->
+	<!--<include file="$(find funrobo_control)/launch/funrobo_rqt.launch"/>-->
+
+	<group if="$(arg show_sensors)">
+		<!-- Load imageview for camera -->
+		<group if="$(arg show_camera)">
+			<node name="image_view" pkg="image_view" type="image_view" args="image:=/funrobo/camera_1/image_raw" />
+		</group>
+
+		<!-- Visualize LIDAR status-->
+		<group unless="$(arg build_map)">
+			<node name="rviz" pkg="rviz" type="rviz" args="-d $(find funrobo_gazebo)/launch/lidar.rviz"/>
+		</group>
+
+		<!-- Build Map and show progress) -->
+		<group if="$(arg build_map)">
+			<node name="mapper" pkg="gmapping" type="slam_gmapping" args="scan:=/funrobo/laser/scan _odom_frame:=/odom"/>
+			<node name="rviz" pkg="rviz" type="rviz" args="-d $(find funrobo_gazebo)/launch/map.rviz"/>
+		</group>
+
+		<!-- Record LIDAR / tf data -->
+		<!--<node name="recorder" pkg="rosbag" type="record" args="-o /tmp/lidar /funrobo/laser/scan /tf"/>-->
+	</group>
+</launch>

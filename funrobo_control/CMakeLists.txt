@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(olin_control)
+project(funrobo_control)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -98,7 +98,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES olin_control
+#  LIBRARIES funrobo_control
 #  CATKIN_DEPENDS ros_control ros_controllers
 #  DEPENDS system_lib
 )
@@ -115,24 +115,24 @@ include_directories(
 )
 
 ## Declare a C++ library
-# add_library(olin_control
-#   src/${PROJECT_NAME}/olin_control.cpp
+# add_library(funrobo_control
+#   src/${PROJECT_NAME}/funrobo_control.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(olin_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(funrobo_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(olin_control_node src/olin_control_node.cpp)
+# add_executable(funrobo_control_node src/funrobo_control_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(olin_control_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(funrobo_control_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(olin_control_node
+# target_link_libraries(funrobo_control_node
 #   ${catkin_LIBRARIES}
 # )
 
@@ -151,7 +151,7 @@ include_directories(
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS olin_control olin_control_node
+# install(TARGETS funrobo_control funrobo_control_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -176,7 +176,7 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_olin_control.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_funrobo_control.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

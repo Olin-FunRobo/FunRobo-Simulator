@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(olin_autonomy)
+project(funrobo_autonomy)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -103,7 +103,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES olin_autonomy
+#  LIBRARIES funrobo_autonomy
 #  CATKIN_DEPENDS gazebo_msgs roscpp rospy sensor_msgs std_msgs
 #  DEPENDS system_lib
 )
@@ -120,24 +120,24 @@ include_directories(
 )
 
 ## Declare a C++ library
-# add_library(olin_autonomy
-#   src/${PROJECT_NAME}/olin_autonomy.cpp
+# add_library(funrobo_autonomy
+#   src/${PROJECT_NAME}/funrobo_autonomy.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(olin_autonomy ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(funrobo_autonomy ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(olin_autonomy_node src/olin_autonomy_node.cpp)
+# add_executable(funrobo_autonomy_node src/funrobo_autonomy_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(olin_autonomy_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(funrobo_autonomy_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(olin_autonomy_node
+# target_link_libraries(funrobo_autonomy_node
 #   ${catkin_LIBRARIES}
 # )
 
@@ -156,7 +156,7 @@ include_directories(
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS olin_autonomy olin_autonomy_node
+# install(TARGETS funrobo_autonomy funrobo_autonomy_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -181,7 +181,7 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_olin_autonomy.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_funrobo_autonomy.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

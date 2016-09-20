@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <package>
-  <name>olin_control</name>
+  <name>funrobo_control</name>
   <version>0.0.0</version>
   <description>Package for controlling Olin FunRobo Simulated Rover</description>
 
   <maintainer email="yoonyoung.cho@students.olin.edu">Yoonyoung Cho</maintainer>
   <license>BSD</license>
-  <url type="repository">https://github.com/yycho0108/olin_funrobo</url>
+  <url type="repository">https://github.com/Olin-FunRobo/FunRobo-Simulator</url>
   <author email="yoonyoung.cho@students.olin.edu">Yoonyoung Cho</author>
 
   <!-- DEPENDENCIES -->

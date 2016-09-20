@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<robot name="olin" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="funrobo" xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<xacro:include filename="$(find olin_description)/urdf/wheel.urdf.xacro" />
-	<xacro:include filename="$(find olin_description)/urdf/camera.urdf.xacro" />
-	<xacro:include filename="$(find olin_description)/urdf/lidar.urdf.xacro" />
-	<xacro:include filename="$(find olin_description)/urdf/imu.urdf.xacro" />
+	<xacro:include filename="$(find funrobo_description)/urdf/wheel.urdf.xacro" />
+	<xacro:include filename="$(find funrobo_description)/urdf/camera.urdf.xacro" />
+	<xacro:include filename="$(find funrobo_description)/urdf/lidar.urdf.xacro" />
+	<xacro:include filename="$(find funrobo_description)/urdf/imu.urdf.xacro" />
 
-	<xacro:include filename="$(find olin_description)/urdf/range.urdf.xacro" />
+	<xacro:include filename="$(find funrobo_description)/urdf/range.urdf.xacro" />
 
 	<property name="M_PI" value="3.14159"/>
 

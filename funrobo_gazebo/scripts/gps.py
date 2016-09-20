@@ -11,7 +11,7 @@ def model_position_client():
         get_model_state = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
         #print get_model_state({'model_name':'olin','relative_entity_name':'ground_plane'})
         #print get_model_state({'model_name':'olin','relative_entity_name':'ground_plane'})
-        return get_model_state('olin','')
+        return get_model_state('funrobo','')
     except rospy.ServiceException, e:
         print "Service call failed: {}".format(e)
 
