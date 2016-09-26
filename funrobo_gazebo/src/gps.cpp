@@ -57,7 +57,7 @@ int main(int argc, char** argv){
 
 	ros::init(argc,argv,"gps");
 
-	ros::NodeHandle nh;
+	ros::NodeHandle nh("gps");
 
 	fix_pub = nh.advertise<sensor_msgs::NavSatFix>("fix",1000);
 	vel_pub = nh.advertise<geometry_msgs::TwistStamped>("vel",1000);
